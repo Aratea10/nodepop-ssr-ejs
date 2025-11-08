@@ -11,6 +11,7 @@ const MongoStore = require('connect-mongo');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 var app = express();
 
@@ -42,6 +43,8 @@ app.use(
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use('/auth', authRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
