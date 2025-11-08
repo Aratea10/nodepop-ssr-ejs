@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <form method="get" action="/products">
+            <label>Tag</label>
+            <select name="tag">
+                <option value="">--Any--</option>
+                <option value="work" <%= (query.tag==='work'?'selected':'') %>>work</option>
+                <option value="lifestyle" <%= (query.tag==='lifestyle'?'selected':'') %>>lifestyle</option>
+                <option value="motor" <%= (query.tag==='motor'?'selected':'') %>>motor</option>
+                <option value="mobile" <%= (query.tag==='mobile'?'selected':'') %>>mobile</option>
+            </select>
+            <label>Precio min</label>
+            <input type="number" name="priceMin" value="<%= query.priceMin || '' %>" />
+            <label>Precio max</label>
+            <input type="number" name="priceMax" value="<%= query.priceMax || '' %>" />
+            <label>Nombre empieza por</label>
+            <input type="text" name="name" value="<%= query.name || '' %>" />
+            <label>Por página</label>
+            <input type="number" name="limit" value="<%= query.limit || 10 %>" min="1" />
+            <button type="submit">Filtrar</button>
+        </form>
+        <a href="/products/new">Crear producto</a>
+        <ul>
+            <% items.forEach(p => { %>
+               <li>
+                    <strong><%= p.name %></strong> - <%= p.price %>€<em>(<%= (p.tags || []).join(', ') %>)</em>
+                    <form method="post" action="/products/<%= p._id %>/delete" style="display:inline;">
+                        <button type="submit">Borrar</button>
+                    </form>
+               </li> 
+            <% }) %>
+        </ul>
+        <div>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <a href="/products?<%= new URLSearchParams({ ...query, page: i }).toString() %>">
+                    <%= i %>
+                </a>
+            <% } %>
+        </div>
+        <form method="post" action="/auth/logout">
+            <button type="submit">Logout</button>
+        </form>
+    </body>
+</html>
