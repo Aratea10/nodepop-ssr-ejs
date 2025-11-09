@@ -28,7 +28,6 @@ const USER_PASSWORD = {
   'angrboda@example.com': 'cxVSJrDnwr0D',
   'surtr@example.com': 'RpicyD6VWbcZ',
 };
-
 async function createSecureUser(email, name, plainPassword) {
   if (!plainPassword) {
     throw new Error(`Password missing for ${email}`);

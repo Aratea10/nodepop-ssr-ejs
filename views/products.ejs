@@ -22,9 +22,9 @@
                 <option value="mobile" <%= (query.tag==='mobile'?'selected':'') %>>mobile</option>
             </select>
             <label>Precio min</label>
-            <input type="number" name="priceMin" value="<%= query.priceMin || '' %>" />
+            <input type="number" name="priceMin" value="<%= query.priceMin || '' %>" min="0" />
             <label>Precio max</label>
-            <input type="number" name="priceMax" value="<%= query.priceMax || '' %>" />
+            <input type="number" name="priceMax" value="<%= query.priceMax || '' %>" min="0" />
             <label>Nombre empieza por</label>
             <input type="text" name="name" value="<%= query.name || '' %>" />
             <label>Por página</label>
