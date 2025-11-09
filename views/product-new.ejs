@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/stylesheets/base.css" />
-        <link rel="stylesheet" href="/stylesheets/shop.css" />
-    </head>
-    <body>
-        <h1><%= title %></h1>
-        <% if (error) { %><p style="color:red;"><%= error %></p><% } %>
-        <form method="post" action="/products/new">
-            <label>Nombre</label>
-            <input name="name" required />
-            <label>Precio</label>
-            <input type="number" name="price" required />
-            <label>Tags (coma: work,lifestyle,motor,mobile)</label>
-            <input name="tags" />
-            <button type="submit">Crear</button>
+<html lang="es">
+<head>
+    <%- include('partials/_head') %>
+    <link rel="stylesheet" href="/stylesheets/product-new.css" />
+</head>
+<body class="min-h-screen p-4 sm:p-8 font-outfit">
+    <%- include('partials/_header') %>
+
+    <main class="max-w-4xl mx-auto p-6 md:p-8 bg-white rounded-xl shadow-2xl border border-gray-100">
+        <h2 class="text-3xl font-light text-[var(--color-text-dark)] mb-2 flex items-center space-x-3">
+            <i data-lucide="plus-circle" class="w-7 h-7"></i>
+            <span>Publicar Nuevo Anuncio</span>
+        </h2>
+        <p class="text-[var(--color-text-medium)] mb-8 text-sm">
+            Rellena los campos obligatorios (*) para poner tu artículo a la venta o indicar que estás buscándolo.
+        </p>
+        <% if (error) { %><p class="text-red-600 mb-4 text-sm"><%= error %></p><% } %>
+        <form method="post" action="/products/new" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2">
+                    <label for="name" class="form-label">Nombre del Artículo (*)</label>
+                    <input type="text" id="name" name="name" required placeholder="Ej: Guitarra Eléctrica Fender" class="form-input">
+                </div>
+            </div>
+            <div>
+                <label for="description" class="form-label">Descripción Detallada</label>
+                <textarea id="description" name="description" rows="4" placeholder="Describe el estado, características y motivo de la venta o búsqueda." class="form-input resize-none"></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="tags" class="form-label">Etiquetas (Tags) (*)</label>
+                    <input type="text" id="tags" name="tags" required placeholder="Ej: work, lifestyle, motor, mobile" class="form-input">
+                    <p class="text-xs text-[var(--color-text-medium)] mt-1">Usa solo: work, lifestyle, motor, mobile (separados por coma).</p>
+                </div>
+                <div>
+                    <label for="price" class="form-label">Precio (€) (*)</label>
+                    <input type="number" id="price" name="price" required placeholder="Ej: 350.00" min="0" step="0.01" class="form-input">
+                </div>
+            </div>
+            <div class="pt-4 flex justify-end">
+                <button type="submit" class="flex items-center space-x-2 py-3 px-8 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white bg-[var(--color-accent-dark)] hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-600 transition duration-200 ease-in-out transform hover:scale-[1.01] active:scale-[0.99]">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Publicar Anuncio</span>
+                </button>
+            </div>
         </form>
-    </body>
+    </main>
+    <script src="/javascripts/product-new-ui.js"></script>
+</body>
 </html>
