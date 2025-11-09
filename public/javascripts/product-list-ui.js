@@ -1,56 +1,73 @@
-document.addEventListener('DOMContentLoaded', function () {
-  if (typeof lucide !== 'undefined') {
+window.onload = function() {
     lucide.createIcons();
-  }
+    setupEventListeners();
+};
 
-  const deleteModal = document.getElementById('deleteModal');
-  const deleteMessage = document.getElementById('deleteMessage');
-  let productIdToDelete = null;
+const deleteModal = document.getElementById('deleteModal');
+const deleteMessage = document.getElementById('deleteMessage');
+const confirmDeleteButton = document.querySelector('.confirm-delete-button');
+const cancelDeleteButton = document.querySelector('.cancel-delete-button');
 
-  function showDeleteModal(productName, productId) {
-    if (!deleteModal || !deleteMessage) return;
-
+let productIdToDelete = null; 
+        
+function showDeleteModal(productName, productId) {
     productIdToDelete = productId;
-    deleteMessage.innerHTML =
-      '¿Estás seguro de que quieres eliminar "' + productName + '"? Esta acción es irreversible.';
+    deleteMessage.innerHTML = '¿Estás seguro de que quieres eliminar "<strong>' + productName + '</strong>"? Esta acción es irreversible.';
     deleteModal.classList.remove('hidden');
+    lucide.createIcons(); 
+}
 
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
-  }
-
-  function hideDeleteModal() {
-    if (!deleteModal) return;
+function hideDeleteModal() {
     deleteModal.classList.add('hidden');
     productIdToDelete = null;
-  }
+}
 
-  function confirmDelete() {
-    if (productIdToDelete) {
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = '/products/' + productIdToDelete + '/delete';
-      document.body.appendChild(form);
-      form.submit();
-    }
-    hideDeleteModal();
-  }
+async function confirmDelete() {
+    if (!productIdToDelete) return;
 
-  document.body.addEventListener('click', function (event) {
-    if (event.target.matches('.delete-button')) {
-      const button = event.target;
-      const productName = button.getAttribute('data-product-name');
-      const productId = button.getAttribute('data-product-id');
-      showDeleteModal(productName, productId);
-    }
+    try {
+        const response = await fetch(`/products/${productIdToDelete}/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-    if (event.target.matches('.confirm-delete-button')) {
-      confirmDelete();
+        if (response.ok) {
+            window.location.reload();
+        } else {
+            console.error('Error al eliminar el producto:', response.statusText);
+            alert('Hubo un error al eliminar el producto. Inténtalo de nuevo.');
+            hideDeleteModal();
+        }
+    } catch (error) {
+        console.error('Error de red:', error);
+        alert('Hubo un error de red. Verifica tu conexión.');
+        hideDeleteModal();
     }
+}
 
-    if (event.target.matches('.cancel-delete-button')) {
-      hideDeleteModal();
+function setupEventListeners() {
+    document.querySelectorAll('.delete-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const productName = event.currentTarget.dataset.productName;
+            const productId = event.currentTarget.dataset.productId;
+            showDeleteModal(productName, productId);
+        });
+    });
+
+    if (confirmDeleteButton) {
+        confirmDeleteButton.addEventListener('click', confirmDelete);
     }
-  });
-});
+    if (cancelDeleteButton) {
+        cancelDeleteButton.addEventListener('click', hideDeleteModal);
+    }
+    
+    if (deleteModal) {
+        deleteModal.addEventListener('click', (event) => {
+            if (event.target === deleteModal) {
+                hideDeleteModal();
+            }
+        });
+    }
+}
