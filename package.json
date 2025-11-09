@@ -7,7 +7,9 @@
     "dev": "cross-env NODE_ENV=development nodemon ./bin/www",
     "bsync": "node ./scripts/browserSync.js",
     "dev:ui": "concurrently \"npm run dev\" \"npm run bsync\"",
-    "initDB": "node ./scripts/initDB.js"
+    "initDB": "node ./scripts/initDB.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
