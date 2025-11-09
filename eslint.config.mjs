@@ -17,7 +17,6 @@ export default defineConfig([
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     },
   },
-
   {
     files: ['eslint.config.mjs'],
     languageOptions: {
@@ -26,7 +25,6 @@ export default defineConfig([
       globals: { ...globals.node, ...globals.es2021 },
     },
   },
-
   {
     files: ['public/**/*.js'],
     languageOptions: {
