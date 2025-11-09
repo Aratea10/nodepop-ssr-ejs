@@ -1,5 +1,4 @@
-# 🎯 Nodepop (SSR - EJS) — Proyecto Back-end
-
+# 🎯 Nodepop (SSR - EJS)
 <div align="center">
 
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
@@ -10,7 +9,6 @@
 </div>
 
 ## 📖 Descripción
-
 Nodepop es una aplicación server-side rendered (SSR) desarrollada con Express y EJS para gestionar anuncios de venta de segunda mano.
 
 Cada anuncio (producto) contiene:
@@ -31,7 +29,6 @@ La aplicación usa MongoDB (Mongoose) para persistencia y `express-session` con 
 ---
 
 ## ✨ Características principales
-
 - SSR con EJS para renderizado de páginas.
 - Modelos Mongoose: `User` y `Product`.
 - Búsqueda y filtros: tag, priceMin, priceMax, name (starts-with).
@@ -42,28 +39,23 @@ La aplicación usa MongoDB (Mongoose) para persistencia y `express-session` con 
 ---
 
 ## 🛠️ Stack tecnológico
-
-|           Backend |   Base de datos    | Vistas |            Utilidades            |
+| Backend           | Base de datos      | Vistas | Utilidades                       |
 | ----------------: | :----------------: | :----: | :------------------------------: |
 | Node.js + Express | MongoDB (Mongoose) |  EJS   | nodemon, dotenv, express-session |
 
 ---
 
 ## 🚀 Cómo ejecutar el proyecto (local)
-
 ### Prerrequisitos
-
 - Node.js (>= 16 recomendado)
 - MongoDB accesible (local o en URI)
 
 ### Instalar dependencias
-
 ```bash
 npm install
 ```
 
 ### Variables de entorno
-
 Copiar `.env.example` o crear `.env` con al menos las siguientes variables:
 
 ```
@@ -91,7 +83,6 @@ poseidon@example.com / mvgMMwfzmb0s
 ```
 
 ### Ejecutar en modo desarrollo
-
 ```bash
 npm run dev
 # o
@@ -105,7 +96,6 @@ Si encuentras "Port 3000 is already in use" detén la otra instancia o cambia `P
 ---
 
 ## 🔎 Endpoints y ejemplos de uso
-
 - GET `/` — Página principal (muestra el índice si el usuario está autenticado, de lo contrario redirige al login).
 - GET `/auth/login` — Formulario de login.
 - POST `/auth/login` — Iniciar sesión (email + password).
@@ -116,13 +106,11 @@ Si encuentras "Port 3000 is already in use" detén la otra instancia o cambia `P
 - POST `/products/:id/delete` — Borrar producto (solo propietario).
 
 Ejemplo de query con filtros/paginación:
-
 ```
 GET /products?tag=lifestyle&priceMin=100&priceMax=1000&page=1&limit=8&sort=price-asc
 ```
 
 Notas sobre filtros:
-
 - `tag` debe ser uno de: `work`, `lifestyle`, `motor`, `mobile`.
 - `priceMin` / `priceMax` son números (floats aceptados).
 - `name` busca por prefijo (empieza por...).
@@ -131,12 +119,11 @@ Notas sobre filtros:
 ---
 
 ## 📁 Estructura del proyecto (resumen)
-
 ```
 nodepop-ssr-ejs/
 ├── app.js
 ├── bin/
-│   └── www                # arranque del servidor
+│   └── www                
 ├── lib/
 │   └── connectMongoose.js
 ├── models/
@@ -166,7 +153,6 @@ nodepop-ssr-ejs/
 ---
 
 ## ✅ Buenas prácticas y recomendaciones
-
 - No comitees `.env` ni secretos en repositorios públicos.
 - El `scripts/initDB.js` contiene contraseñas para testing: elimínalas o cámbialas en producción.
 - Para despliegue, configurar correctamente `PORT`, `MONGODB_URI` y `SESSION_SECRET`.
@@ -174,7 +160,6 @@ nodepop-ssr-ejs/
 ---
 
 ## 🤝 Contribución
-
 Si quieres mejorar el proyecto:
 
 1. Haz fork del repositorio.
@@ -185,11 +170,9 @@ Si quieres mejorar el proyecto:
 ---
 
 ## 📄 Licencia
-
 Este proyecto se entrega con **Licencia MIT**.
 
 ---
 
 ## 👨‍💻 Autor
-
 **Sara Gallego Méndez (Aratea10)** — estudiante Bootcamp Desarrollo Web FullStack
