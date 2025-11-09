@@ -106,7 +106,7 @@ Si encuentras "Port 3000 is already in use" detén la otra instancia o cambia `P
 
 ## 🔎 Endpoints y ejemplos de uso
 
-- GET `/` — Página principal (muestra login o índice según sesión).
+- GET `/` — Página principal (muestra el índice si el usuario está autenticado, de lo contrario redirige al login).
 - GET `/auth/login` — Formulario de login.
 - POST `/auth/login` — Iniciar sesión (email + password).
 - POST `/auth/logout` — Cerrar sesión.
@@ -147,6 +147,9 @@ nodepop-ssr-ejs/
 │   ├── auth.js
 │   └── products.js
 ├── views/
+│   ├── partials/
+│   │   ├── _head.ejs
+│   │   └── _header.ejs
 │   ├── index.ejs
 │   ├── login.ejs
 │   ├── product-new.ejs
