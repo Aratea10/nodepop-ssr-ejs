@@ -11,19 +11,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=League+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/base.css">
     <link rel="stylesheet" href="/stylesheets/login.css">
-
+    <style>
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .league-script-regular { font-family: 'League Script', cursive; }
+    </style>
 </head>
 
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
+<body class="min-h-screen flex flex-col items-center justify-center p-4 font-outfit">
     <header class="mb-10 w-full max-w-md">
-        <h1 class="header-title league-script-regular text-center text-[var(--color-text-dark)]">
+        <h1 class="header-title league-script-regular text-center text-[var(--color-text-dark)] font-bold">
         Nodepop
         </h1>
-        <nav class="montserrat-regular text-center mt-2 text-sm text-[var(--color-text-medium)] tracking-wider uppercase hidden sm:block">
-            <p class="subtitle-montserrat text-center mt-2 text-sm text-[var(--color-text-medium)] tracking-wider uppercase hidden sm:block">
-                Venta · Segunda Mano · Artículos
+        <nav class="font-montserrat text-center mt-2 text-[var(--color-text-medium)] tracking-wider uppercase">
+            <p class="font-montserrat text-center mt-2 text-[var(--color-text-medium)] tracking-wider uppercase font-medium">
+                VENTA • SEGUNDA MANO • ARTÍCULOS
             </p>
         </nav>
     </header>
