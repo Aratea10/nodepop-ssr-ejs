@@ -12,9 +12,19 @@ body {
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--color-bg-light);
-    transition: background-color 0.3s;
+  font-family:
+    'Outfit',
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
+  transition:
+    background-color 0.3s,
+    color 0.2s;
 }
 
 .league-script-regular {
@@ -24,17 +34,17 @@ body {
 }
 
 .header-title {
-  font-size: 4rem;
+  font-size: 5rem;
   line-height: 1;
+  font-weight: 700;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
 .subtitle-montserrat {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  /* Puedes añadir más estilos aquí, como un tamaño de texto más pequeño, por ejemplo: */
-  font-size: 0.75rem; 
-  letter-spacing: 0.05em; /* Espaciado sutil */
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 .visually-hidden {
