@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    <meta charset="utf-8" />
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/base.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/shop.css" />
+</head>
+<body>
+    <h1>Todos los productos</h1>
+
+    <div style="margin-bottom: 20px;">
+        <a href="/products">Mis productos</a>
+        <a href="/products/new" style="margin-left: 20px;">Crear nuevo producto</a>
+    </div>
+
+    <ul>
+        <% products.forEach(p => { %>
+           <li>
+                <strong><%= p.name %></strong> - <%= p.price %>€
+                <em>(<%= (p.tags || []).join(', ') %>)</em>
+                <br>
+                <small>Vendido por: <%= p.owner.name %></small>
+           </li>
+        <% }) %>
+    </ul>
+
+    <form method="post" action="/auth/logout" style="margin-top: 20px;">
+        <button type="submit">Logout</button>
+    </form>
+</body>
 </html>

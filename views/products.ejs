@@ -8,6 +8,10 @@
     </head>
     <body>
         <h1><%= title %></h1>
+        <div style="margin-bottom: 20px;">
+            <a href="/">Todos los productos</a>
+            <a href="/products/new" style="margin-left: 20px;">Crear producto</a>
+        </div>
         <form method="get" action="/products">
             <label>Tag</label>
             <select name="tag">
@@ -27,7 +31,6 @@
             <input type="number" name="limit" value="<%= query.limit || 10 %>" min="1" />
             <button type="submit">Filtrar</button>
         </form>
-        <a href="/products/new">Crear producto</a>
         <ul>
             <% items.forEach(p => { %>
                <li>
@@ -45,7 +48,7 @@
                 </a>
             <% } %>
         </div>
-        <form method="post" action="/auth/logout">
+        <form method="post" action="/auth/logout" style="margin-top: 20px;">
             <button type="submit">Logout</button>
         </form>
     </body>
