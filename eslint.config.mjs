@@ -13,6 +13,9 @@ export default defineConfig([
       sourceType: 'commonjs',
       globals: { ...globals.node, ...globals.es2021 },
     },
+    rules: {
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    },
   },
 
   {
