@@ -1,19 +1,101 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/stylesheets/style.css"/>
-    </head>
-    <body>
-        <h1>Login</h1>
-        <% if (error) { %><p style="color:red;"><%= error %></p><% } %>
-        <form method="post" actions="/auth/login">
-            <label>Email</label>
-            <input type="email" name="email" required/>
-            <label>Password</label>
-            <input type="password" name="password" required/>
-            <button type="submit">Login</button>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> Iniciar Sesión </title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Script&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/stylesheets/login.css"/>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <header class="mb-10 w-full max-w-md">
+        <h1 class="header-title league-script-regular text-center text-[var(--color-text-dark)]">Nodepop</h1>
+        <nav class="text-center mt-2 text-sm text-[var(--color-text-medium)] tracking-wider uppercase hidden sm:block">
+            <span>Venta</span>
+            <span class="mx-3">·</span>
+            <span>Segunda Mano</span>
+            <span class="mx-3">·</span>
+            <span>Artículos</span>
+        </nav>
+    </header>
+
+    <div class="w-full max-w-md bg-white rounded-xl p-8 md:p-10 border border-gray-200 shadow-xl shadow-gray-200/50">
+
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-light text-[var(--color-text-dark)]">
+                Inicia sesión en tu cuenta
+            </h2>
+            <p class="text-sm text-[var(--color-text-medium)] mt-2">
+                Encuentra y gestiona tus artículos
+            </p>
+        </div>
+        
+        <% if (error) { %>
+            <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm text-center font-medium" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form id="loginForm" method="post" action="/auth/login" class="space-y-6">
+
+            <div>
+                <label for="email" class="sr-only">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                    placeholder="Correo Electrónico"
+                    class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-stone-600 focus:border-stone-600 transition duration-150 ease-in-out text-sm"
+                >
+            </div>
+
+            <div>
+                <label for="password" class="sr-only">Contraseña</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    autocomplete="current-password"
+                    placeholder="Contraseña"
+                    class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-stone-600 focus:border-stone-600 transition duration-150 ease-in-out text-sm"
+                >
+            </div>
+
+            <div>
+                <button
+                    type="submit"
+                    id="submitButton"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-sm font-medium text-white bg-[var(--color-accent-dark)] hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-600 transition duration-200 ease-in-out transform hover:scale-[1.01] active:scale-[0.99]"
+                >
+                    Iniciar Sesión
+                </button>
+            </div>
+
+            <div class="text-center pt-2">
+                <a href="#" class="text-sm text-[var(--color-text-medium)] hover:text-stone-700 font-light transition duration-150 ease-in-out">
+                    ¿Aún no estás registrado?
+                </a>
+            </div>
+
         </form>
-    </body>
-</html>
+    </div>
+
+    <div class="mt-8 text-center text-xs text-[var(--color-text-medium)]">
+        <a href="#" class="inline-block mx-3 hover:underline">Política de Privacidad</a>
+        <span class="inline-block mx-1">·</span>
+        <a href="#" class="inline-block mx-3 hover:underline">Contacto</a>
+    </div>
+
+    <script src="/javascripts/login.js"></script>
+</body>
+</html>  
