@@ -41,6 +41,10 @@ app.use(
     }),
   }),
 );
+app.use((req, res, next) => {
+  res.locals.title = 'NodePop';
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
