@@ -10,7 +10,6 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const productsRouter = require('./routes/products');
 
