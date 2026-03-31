@@ -30,6 +30,12 @@ La aplicación usa MongoDB (Mongoose) para persistencia y `express-session` con 
 
 ---
 
+<div align="center">
+  <img src="docs/screenshot.png" alt="Nodepop screenshot" width="700"/>
+</div>
+
+---
+
 ## 🌐 Despliegue en producción
 
 La aplicación está desplegada en un servidor AWS EC2:
