@@ -1,12 +1,12 @@
 # 🎯 Nodepop (SSR - EJS)
 <div align="center">
 
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![EJS](https://img.shields.io/badge/EJS-2B3A42?style=for-the-badge)](https://ejs.co/)
-[![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)](https://www.ecma-international.org/)
-[![CSS3](https://img.shields.io/badge/css-663399?style=for-the-badge&logo=css&logoColor=white)](https://www.w3.org/Style/CSS/)
+[![EJS](https://img.shields.io/badge/ejs-B4CA65?style=for-the-badge&logo=ejs&logoColor=white)](https://ejs.co/)
+[![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![CSS3](https://img.shields.io/badge/CSS3-663399?style=for-the-badge&logo=css&logoColor=white)](https://css3.com/)
 
 </div>
 
@@ -55,7 +55,7 @@ La aplicación está desplegada en un servidor AWS EC2:
 
 - **Servidor:** AWS EC2 (t3.micro) con Ubuntu 24.04 LTS
 - **IP estática:** [35.170.15.75](http://35.170.15.75) (Elastic IP)
-- **Dominio:** [aratea.duckdns.org](http://aratea.duckdns.org)
+- **Dominio:** [aratea.duckdns.org](http://aratea.duckdns.org) (DuckDNS)
 - **Nodepop:** Node.js v20 + Express + MongoDB + Supervisor (puerto 3000)
 - **Marketplace:** Next.js 16 + PostgreSQL (Docker) + Supervisor (puerto 4000)
 - **Nginx:** Proxy inverso + archivos estáticos con cabecera X-Owner
@@ -205,9 +205,9 @@ Si quieres mejorar el proyecto:
 ---
 
 ## 📄 Licencia
-Este proyecto se entrega con **Licencia MIT**.
+Este proyecto se entrega con [**Licencia MIT**](https://github.com/Aratea10/nodepop-ssr-ejs/blob/main/LICENSE).
 
 ---
 
-## 👨‍💻 Autor
-**Sara Gallego Méndez (Aratea10)** — estudiante Bootcamp Desarrollo Web FullStack
+## 👨‍💻 Autora
+**Sara Gallego Méndez** — Estudiante Bootcamp Desarrollo Web FullStack en [KeepCoding](https://keepcoding.io/).
