@@ -1,4 +1,5 @@
 # 🎯 Nodepop (SSR - EJS)
+
 <div align="center">
 
 [![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
@@ -216,4 +217,4 @@ Este proyecto se entrega con [**Licencia MIT**](https://github.com/Aratea10/node
 ---
 
 ## 👨‍💻 Autora
-**Sara Gallego Méndez** — Estudiante Bootcamp Desarrollo Web FullStack en [KeepCoding](https://keepcoding.io/).
+**Sara Gallego Méndez** — Estudiante Bootcamp de Desarrollo Web FullStack en [KeepCoding](https://keepcoding.io/).
