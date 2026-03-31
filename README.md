@@ -30,6 +30,28 @@ La aplicación usa MongoDB (Mongoose) para persistencia y `express-session` con 
 
 ---
 
+## 🌐 Despliegue en producción
+
+La aplicación está desplegada en un servidor AWS EC2:
+
+**URL de la aplicación:** http://35.170.15.75
+
+**URL de archivo estático servido por Nginx:** http://35.170.15.75/public/stylesheets/login.css
+
+> La cabecera personalizada `X-Owner: Aratea10` se puede verificar con:
+> ```bash
+> curl -I http://35.170.15.75/public/stylesheets/login.css
+> ```
+
+### Arquitectura de despliegue
+
+- **Servidor:** AWS EC2 (t3.micro) con Ubuntu 24.04 LTS
+- **Node.js** con **Supervisor** como gestor de procesos (reinicio automático en startup)
+- **Nginx** como proxy inverso + servidor de archivos estáticos
+- **MongoDB 7.0** como base de datos
+
+---
+
 ## ✨ Características principales
 - SSR con EJS para renderizado de páginas.
 - Modelos Mongoose: `User` y `Product`.
@@ -125,7 +147,7 @@ Notas sobre filtros:
 nodepop-ssr-ejs/
 ├── app.js
 ├── bin/
-│   └── www                
+│   └── www
 ├── lib/
 │   └── connectMongoose.js
 ├── models/
