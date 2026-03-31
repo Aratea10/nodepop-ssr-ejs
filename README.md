@@ -34,21 +34,32 @@ La aplicación usa MongoDB (Mongoose) para persistencia y `express-session` con 
 
 La aplicación está desplegada en un servidor AWS EC2:
 
-**URL de la aplicación:** http://35.170.15.75
+### Ejercicio 1 - Nodepop (por dominio)
 
-**URL de archivo estático servido por Nginx:** http://35.170.15.75/public/stylesheets/login.css
+[**http://aratea.duckdns.org**](http://aratea.duckdns.org)
 
-> La cabecera personalizada `X-Owner: Aratea10` se puede verificar con:
+### Ejercicio 2 - React Avanzado / Next.js (por IP)
+
+[**http://35.170.15.75**](http://35.170.15.75)
+
+### Archivo estático servido por Nginx con cabecera X-Owner
+
+[**http://aratea.duckdns.org/public/stylesheets/login.css**](http://aratea.duckdns.org/public/stylesheets/login.css)
+
+> Verificar cabecera `X-Owner: Aratea10`:
 > ```bash
-> curl -I http://35.170.15.75/public/stylesheets/login.css
+> curl -I http://aratea.duckdns.org/public/stylesheets/login.css
 > ```
 
 ### Arquitectura de despliegue
 
 - **Servidor:** AWS EC2 (t3.micro) con Ubuntu 24.04 LTS
-- **Node.js** con **Supervisor** como gestor de procesos (reinicio automático en startup)
-- **Nginx** como proxy inverso + servidor de archivos estáticos
-- **MongoDB 7.0** como base de datos
+- **IP estática:** [35.170.15.75](http://35.170.15.75) (Elastic IP)
+- **Dominio:** [aratea.duckdns.org](http://aratea.duckdns.org)
+- **Nodepop:** Node.js v20 + Express + MongoDB + Supervisor (puerto 3000)
+- **Marketplace:** Next.js 16 + PostgreSQL (Docker) + Supervisor (puerto 4000)
+- **Nginx:** Proxy inverso + archivos estáticos con cabecera X-Owner
+- **Repositorio de configuración:** [https://github.com/Aratea10/devops-practice](https://github.com/Aratea10/devops-practice)
 
 ---
 
